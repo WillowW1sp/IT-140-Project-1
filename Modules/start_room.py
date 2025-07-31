@@ -30,17 +30,4 @@ def start_room():
     print("You can interact with the objects in the room or leave.")
     print("Type 'help' for a list of actions or 'quit' to exit.")
 
-    while True:
-        action = input("What do you want to do? ").strip().lower()
-        
-        if action == "help":
-            print("Available actions:")
-            for user_action in user_actions:
-                print(f"- {user_action}")
-        elif action == "quit":
-            print("Exiting the game. Goodbye!")
-            break
-        elif action in user_actions:
-            print(f"You chose to: {action}")
-        else:
-            print("Invalid action. Type 'help' for a list of actions.")
+    
