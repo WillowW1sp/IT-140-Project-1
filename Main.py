@@ -6,7 +6,8 @@ import time
 rooms = {
     "main_room": main_room.main_room_actions,
     "hallway": hallway.main_hallway_actions,
-#    "left": left_room.left_room_actions,
+    "left": left_room.left_room_actions,
+    "right": right_room.right_room_actions
 }
 
 # Variable for what room you are in
@@ -53,8 +54,11 @@ time.sleep(3)
 while win == 0:
     if hp > 0:
         # Pass inventory and current_room to the room module and update them
-        inventory, current_room = room_module(inventory, current_room)  # Capture both updated variables
-        
+        if current_room == "left":
+            inventory , current_room , attack = room_module(inventory, current_room, attack)  # capture & update 3 vars
+        else:
+            inventory, current_room = room_module(inventory, current_room)  # Capture both updated variables
+
         # Update room_module after transition
         room_module = rooms[current_room]  # Update the room module based on the new room
         for i in inventory:

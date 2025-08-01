@@ -8,10 +8,11 @@ def hallway_description():
 def main_hallway_actions(inventory , current_room):
     actions = {
         # TODO go back and edit the descriptions here
-        "return" : "go back to the previous room",
-        "left door": "enter the left door",
-        "right door": "enter the right door",
-        "examine hallway" : "finds hidden book"
+        "return" : "you turn back to the previous room to see if you missed anything.",
+        "left door": "A door marred with scorch marks, the smell of a long dead fire comes from the door",
+        "right door": "A door on the right, strange sounds echoing from within",
+        "examine hallway" : "as you look around the hallway you notice a small depress on the wall\n when you push it a panel pops out of the wall with a *click*\n " ,
+        "help" : "possible actions"
     }
 
     if current_room == "hallway":
@@ -30,22 +31,27 @@ def main_hallway_actions(inventory , current_room):
         if choice in actions:
             if choice == "return":
                 current_room = "main_room"
+                print(actions[choice])
                 return inventory , current_room
             elif choice == "left door":
                 current_room = "left"
+                print(actions[choice])
                 return inventory , current_room
             elif choice == "right door":
                 current_room = "right"
+                print(actions[choice])
                 return inventory, current_room
             elif choice == "examine hallway":
-                print("as you look around the hallway you notice a small depress on the wall\n")
-                print("when you push it a panel pops out of the wall with a *click*\n")
+                print(actions[choice])
                 inventory["hand bound book"] = "A hand bound book covered in a light stiff leather embossed in gold"
                 print(f"Inventory updated: \n")
                 time.sleep(1)
                 for item in inventory:
                     print(f"{item} : {inventory[item]}")
                     time.sleep(1)
+            elif choice == "help":
+                for i in actions:
+                    print(f"- {i}")
                 return inventory , current_room
         else: 
             print("Invalid action. Please choose a valid action.")
