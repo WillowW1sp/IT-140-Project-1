@@ -13,6 +13,8 @@ def main_room_actions(inventory, current_room):
         "help": "You can:\n -look around\n -open door\n -check furniture\n -sit down"
     }
 
+    book = 1
+
     # Print the room description once at the start
     if current_room == "main_room":
         main_room_description()
@@ -34,13 +36,18 @@ def main_room_actions(inventory, current_room):
                 actions[choice]()  # Call the function directly
 
             # If it's just a string (open door, check furniture)
-            elif choice == "check furniture":  
-                inventory["dusty book"] = "A dusty old book that seems to have been left behind."
-                print(f"Inventory updated: \n")
-                time.sleep(1)
-                for item in inventory:
-                    print(f"{item} : {inventory[item]}")
-                    time.sleep(1)
+            elif choice == "check furniture":
+                    if book == 1:
+                        inventory["dusty book"] = "A dusty old book that seems to have been left behind."
+                        print(f"Inventory updated: \n")
+                        time.sleep(1)
+                        for item in inventory:
+                            print(f"{item} : {inventory[item]}")
+                            time.sleep(1)
+                        book = 0
+
+                    else:
+                        print("The furniture has nothing else of interest.")
                 return inventory , current_room
 
             elif choice == "open door":

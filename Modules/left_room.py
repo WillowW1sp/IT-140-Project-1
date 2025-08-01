@@ -14,6 +14,7 @@ actions = {
     "return" : "You return to the hallway." , 
     "help" : "Possible actions"
 }
+ring = 1
 
     if current_room == "left":
         hallway_description()
@@ -32,27 +33,37 @@ actions = {
             if choice == "check body":
                 print(actions[choice])
                 time.sleep(1)
+                print("The body speaks softly to you: \n Please help me. get me out of here.")
+                print("help the person?:\nYes \n No: ")
+                if input().strip().lower() == "yes":
+                    print("You help the person out of the room.")
+                    inventory["grateful captive"] = "A grateful captive, they owe you their life."
+                    return inventory
+                else:
+                    print("You leave the person behind.")
             elif choice == "examine room":
                 print(actions[choice])
                 time.sleep(1)
             elif choice == "examine box":
-                actions[choice]()
-                inventory["cursed ring"] = "a ornate gold ring glowing with a green light: +15 attack , small chance of death when attacking"
-                attack += 15
-                time.sleep(1)
-                for i in inventory:
-                    print(f"{i} : {inventory[i]}")
+                if ring == 1:
+                    actions[choice]()
+                    inventory["cursed ring"] = "a ornate gold ring glowing with a green light: +15 attack , small chance of death when attacking"
+                    attack += 15
                     time.sleep(1)
-                time.sleep(1)
+                    for i in inventory:
+                        print(f"{i} : {inventory[i]}")
+                        time.sleep(1)
+                    time.sleep(1)
+                    ring = 0
+                else: 
+                    print("The box is empty.")
                 return inventory, attack
             elif choice == "return":
                 current_room = "hallway"
-                print(actions[choice])
                 return inventory, current_room , attack
             elif choice == "help":
                 for i in actions:
                     print(f"- {i}")
-                return inventory, current_room , attack
         else:
             print("Invalid action. Please choose a valid action.")
     return inventory, current_room , attack  # Return both if no valid action is chosen

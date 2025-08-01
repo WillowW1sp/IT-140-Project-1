@@ -15,6 +15,8 @@ def main_hallway_actions(inventory , current_room):
         "help" : "possible actions"
     }
 
+    book = 1
+
     if current_room == "hallway":
         hallway_description()
         time.sleep(2)
@@ -42,13 +44,18 @@ def main_hallway_actions(inventory , current_room):
                 print(actions[choice])
                 return inventory, current_room
             elif choice == "examine hallway":
-                print(actions[choice])
-                inventory["hand bound book"] = "A hand bound book covered in a light stiff leather embossed in gold"
-                print(f"Inventory updated: \n")
-                time.sleep(1)
-                for item in inventory:
-                    print(f"{item} : {inventory[item]}")
+                if book == 1:
+                    print(actions[choice])
+                    inventory["hand bound book"] = "A hand bound book covered in a light stiff leather embossed in gold"
+                    print(f"Inventory updated: \n")
                     time.sleep(1)
+                    for item in inventory:
+                        print(f"{item} : {inventory[item]}")
+                        time.sleep(1)
+                    book = 0
+                    return inventory
+                else: 
+                    print("The panel is empty.")
             elif choice == "help":
                 for i in actions:
                     print(f"- {i}")
