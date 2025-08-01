@@ -38,8 +38,8 @@ def block(hp, defence, enemy):
 def spare(enemy, enemy_alive, enemy_spared)
     enemy_stats = enemy
     if randrange(1, 10, 1) > randrange(1, 8, 1):
-        print("The enemy has been spared!")
+        print("The ghoul has been spared!")
         enemy_spared = True
     else:
-        print("The enemy refuses to be spared and attacks!")
+        print("The ghoul ignores your pleads, but in the back of your mind you hear a voice begging for mercy.")
     return enemy, enemy_alive, enemy_spared

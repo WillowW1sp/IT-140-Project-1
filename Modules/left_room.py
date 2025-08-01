@@ -1,4 +1,5 @@
-import time
+import random
+import fight
 
 def left_room_description():
     print("the scortched door evidence of a tragedy, \n")

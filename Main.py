@@ -7,7 +7,8 @@ rooms = {
     "main_room": main_room.main_room_actions,
     "hallway": hallway.main_hallway_actions,
     "left": left_room.left_room_actions,
-    "right": right_room.right_room_actions
+    "right": right_room.right_room_actions,
+    "boss_room": boss_room.boss_room_main
 }
 
 # Variable for what room you are in
