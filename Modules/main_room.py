@@ -48,7 +48,7 @@ def main_room_actions(inventory, current_room):
 
                     else:
                         print("The furniture has nothing else of interest.")
-                return inventory , current_room
+                    return inventory , current_room
 
             elif choice == "open door":
                 print("You push the door open and step into the hallway, ready to face whatever challenges lie ahead.")

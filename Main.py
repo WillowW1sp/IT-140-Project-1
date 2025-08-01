@@ -1,5 +1,5 @@
 from colorama import Fore, Back, Style
-from Modules import main_room, hallway
+from Modules import main_room, hallway , left_room, right_room, fight
 import time
 
 # List of all rooms and which module to run for them

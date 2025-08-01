@@ -7,17 +7,17 @@ def left_room_description():
     print("a small wooden box layed out infront of them.")
 
 def left_room_actions(inventory, current_room , attack):
-actions = {
-    "check body" : "As you approach the body, you hear the creaking of the wood before you notice its hand shifting.",
-    "examine room" : left_room_description(),
-    "examine box" : "a ornate gold ring glowing with a green light: +15 attack , small chance of death when attacking" ,
-    "return" : "You return to the hallway." , 
-    "help" : "Possible actions"
-}
-ring = 1
+    actions = {
+        "check body" : "As you approach the body, you hear the creaking of the wood before you notice its hand shifting.",
+        "examine room" : left_room_description(),
+        "examine box" : "a ornate gold ring glowing with a green light: +15 attack , small chance of death when attacking" ,
+        "return" : "You return to the hallway." , 
+        "help" : "Possible actions"
+    }
+    ring = 1
 
     if current_room == "left":
-        hallway_description()
+        left_room_description()
         time.sleep(2)
     
     print("You can perform the following actions:")
