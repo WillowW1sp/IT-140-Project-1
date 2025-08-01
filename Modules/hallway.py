@@ -40,7 +40,7 @@ def main_hallway_actions(inventory , current_room):
             elif choice == "examine hallway":
                 print("as you look around the hallway you notice a small depress on the wall\n")
                 print("when you push it a panel pops out of the wall with a *click*\n")
-                inventory["dusty book"] = "A dusty old book that seems to have been left behind."
+                inventory["hand bound book"] = "A hand bound book covered in a light stiff leather embossed in gold"
                 print(f"Inventory updated: \n")
                 time.sleep(1)
                 for item in inventory:
