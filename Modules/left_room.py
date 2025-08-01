@@ -22,8 +22,8 @@ def left_room_actions(inventory, current_room , attack):
     
     print("You can perform the following actions:")
     time.sleep(1)
-    for actions in actions:
-        print(f"- {actions}")
+    for i in actions:
+        print(f"- {i}")
         time.sleep(.5)
 
     while current_room == "left":
@@ -57,10 +57,10 @@ def left_room_actions(inventory, current_room , attack):
                     ring = 0
                 else: 
                     print("The box is empty.")
-                return inventory, attack
+                return inventory, current_room, attack
             elif choice == "return":
                 current_room = "hallway"
-                return inventory, current_room , attack
+                return inventory, current_room, attack
             elif choice == "help":
                 for i in actions:
                     print(f"- {i}")
