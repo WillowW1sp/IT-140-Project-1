@@ -1,14 +1,16 @@
 from colorama import Fore, Back, Style
 from Modules import main_room, hallway , left_room, right_room, fight, boss_room
 import time
-
+#TODO: Cry because I might have bit off more than i can chew
 # List of all rooms and which module to run for them
 rooms = {
     "main_room": main_room.main_room_actions,
     "hallway": hallway.main_hallway_actions,
     "left": left_room.left_room_actions,
     "right": right_room.right_room_actions,
-    "boss_room": boss_room.boss_room_main
+    "boss_room": boss_room.boss_room_main,
+    "left2" : left_room.left_room2_actions,
+    "right2" : left_room.right_room2_actions,
 }
 hp = 1
 defence = 1
@@ -79,7 +81,8 @@ while win == 0:
         break
 
     print(Fore.RED, "Thank you", Style.RESET_ALL)
-    if "dusty book" and "lore book 1" in inventory:
+    # check for lore books
+    if "dusty book" and "lore book 1" and "scrap paper" and "small journal" and "hand bound book" and "ghoul blessing" in inventory:
         print("Gurerren the deceiver, lost to the madness of his crypt locked away any who entered.")
         print("His fractured mind convincing him the only way to save his people was to lock them away.")
         print("With the help of the captives you have freed, you have defeated Gurerren and freed the captives.")
